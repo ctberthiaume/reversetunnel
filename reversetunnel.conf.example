@@ -1,0 +1,31 @@
+# Throughout this file, "hidden computer" refers to this computer, which is
+# behind some sort of firewall or otherwise restrictive network policy that
+# makes direct connections impractical. "visible computer" refers to a
+# computer that is outside the restrictive network policy.
+
+# Configuration variables
+# =======================
+
+# The connection address, as user@address, that the hidden computer will use
+# to connect to the visible computer.
+VISIBLEADDR=user@somewhereicanreach
+
+# The connection port for the SSH server running on the visible computer.
+VISIBLESSHPORT=2222
+
+# The connection port for the SSH server running on the hidden computer (this
+# computer). This tells the visible server which port to use when creating a
+# reverse connection back through the established tunnel.
+# i.e. If you could SSH directly from the visible to the hidden
+# computer, this is the port you would use.
+HIDDENSSHPORT=22
+
+# The port on the visible computer that will be used to connect to the hidden
+# computer.
+# e.g. from the visible computer, run
+# ssh -p $VISIBLELOCALPORT user-on-hidden-computer@localhost
+VISIBLELOCALPORT=6000
+
+# The private key on the hidden computer that will be used to SSH into the
+# visible computer.
+PRIVATEKEY=keyForSomewhereICanReach_ed25519
