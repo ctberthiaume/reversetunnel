@@ -37,7 +37,7 @@ Start the persistent SSH connection on the hidden computer with
 Now from the visible computer, connect to the hidden computer with
 
 ```sh
- -p "$VISIBLELOCALPORT" hidden-user@localhost
+ssh -p "$VISIBLELOCALPORT" hidden-user@localhost
 ```
 
 It can be useful to maintain this persistent connection with a launchd on
