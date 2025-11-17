@@ -35,6 +35,6 @@ date
   -o ConnectTimeout=60 \
   -o ExitOnForwardFailure=True \
   -o ServerAliveInterval=60 \
-  -o ServerAliveInterval=3 -N -T -R \
+  -o ServerAliveCountMax=3 -N -T -R \
   "${VISIBLELOCALPORT?:notAPort}":localhost:"${HIDDENSSHPORT?:notAPort}" \
   "${VISIBLEADDR?:notARealAddress}" 2>&1
