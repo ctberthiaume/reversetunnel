@@ -27,7 +27,7 @@ source "$CONFFILE"
 require_var() {
   local var_name=$1
   if [[ -z "${!var_name}" ]]; then
-    echo "Error: Required variable $var_name is not set in $CONFFILE"
+    echo "Error: Required variable $var_name is not set in $CONFFILE" >&2
     exit 1
   fi
 }
