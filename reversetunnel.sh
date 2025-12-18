@@ -7,6 +7,7 @@
 # a restrictive firewall or has a dynamic IP,
 
 # Load:
+# AUTOSSHPATH - path to autossh binary, if available
 # VISIBLEADDR - remote server address as user@address
 # VISIBLESSHPORT - SSH server port on VISBILEADDR
 # VISIBLELOCALPORT - SSH port on visible computer which connects to hidden
@@ -32,6 +33,7 @@ require_var() {
   fi
 }
 
+require_var AUTOSSHPATH
 require_var VISIBLEADDR
 require_var VISIBLESSHPORT
 require_var VISIBLELOCALPORT
@@ -39,8 +41,8 @@ require_var HIDDENSSHPORT
 require_var PRIVATEKEY
 
 # Check if autossh is available
-if command -v autossh >/dev/null 2>&1; then
-  SSH_CMD="autossh -M 0"  # -M 0 disables monitoring port since we use ServerAliveInterval
+if command -v "$AUTOSSHPATH" >/dev/null 2>&1; then
+  SSH_CMD="$AUTOSSHPATH -M 0"  # -M 0 disables monitoring port since we use ServerAliveInterval
 else
   SSH_CMD="/usr/bin/ssh"
 fi

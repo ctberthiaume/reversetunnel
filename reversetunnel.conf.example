@@ -5,6 +5,8 @@
 
 # Configuration variables
 # =======================
+# Path to autossh. Will be used if available.
+AUTOSSHPATH=/usr/local/bin/autossh
 
 # The connection address, as user@address, that the hidden computer will use
 # to connect to the visible computer.
